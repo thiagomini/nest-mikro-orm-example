@@ -1,0 +1,16 @@
+version: '3.8'
+
+name: 'nestjs-mikro-orm-example'
+
+services:
+  pg:
+    image: postgres:12.3
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5435:5432
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
