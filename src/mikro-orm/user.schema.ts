@@ -1,14 +1,12 @@
-import { BigIntType, EntitySchema } from '@mikro-orm/core';
+import { EntitySchema } from '@mikro-orm/core';
+import { CustomBaseEntity } from './custom-base.entity';
 import { User } from './user.entity';
 
-export const userSchema = new EntitySchema<User>({
+export const userSchema = new EntitySchema<User, CustomBaseEntity>({
   class: User,
   tableName: 'user',
+  extends: 'CustomBaseEntity',
   properties: {
-    id: {
-      type: 'bigint',
-      primary: true,
-    },
     firstName: {
       type: 'string',
     },
@@ -20,11 +18,17 @@ export const userSchema = new EntitySchema<User>({
     },
     createdAt: {
       type: 'timestamp',
-      default: () => new Date(),
+      onCreate: () => new Date(),
     },
     updatedAt: {
       type: 'timestamp',
       onUpdate: () => new Date(),
+      onCreate: () => new Date(),
+    },
+    events: {
+      hidden: true,
+      persist: false,
+      type: 'virtual',
     },
   },
 });

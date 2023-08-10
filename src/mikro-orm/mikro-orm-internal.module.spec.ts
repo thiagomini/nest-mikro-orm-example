@@ -4,6 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { userSchema } from './user.schema';
 import { User } from './user.entity';
+import { customBaseEntitySchema } from './custom-base.entity.schema';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -12,7 +13,7 @@ describe('MikroOrmInternalModule', () => {
     testingModule = await Test.createTestingModule({
       imports: [
         MikroOrmInternalModule.forTests(),
-        MikroOrmModule.forFeature([userSchema]),
+        MikroOrmModule.forFeature([customBaseEntitySchema, userSchema]),
       ],
     }).compile();
 

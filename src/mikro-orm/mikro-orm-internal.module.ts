@@ -13,6 +13,7 @@ export class MikroOrmInternalModule {
           autoLoadEntities: true,
           allowGlobalContext: true,
           implicitTransactions: false,
+          debug: true,
         }),
       ],
     };
