@@ -1,4 +1,4 @@
-import { EntitySchema } from '@mikro-orm/core';
+import { BigIntType, EntitySchema } from '@mikro-orm/core';
 import { User } from './user.entity';
 
 export const userSchema = new EntitySchema<User>({
@@ -6,7 +6,7 @@ export const userSchema = new EntitySchema<User>({
   tableName: 'user',
   properties: {
     id: {
-      type: 'integer',
+      type: 'bigint',
       primary: true,
     },
     firstName: {

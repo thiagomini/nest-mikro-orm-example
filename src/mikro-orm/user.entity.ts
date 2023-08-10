@@ -1,13 +1,15 @@
+import { Id } from './id';
+
 export type CreateUserProps = {
   firstName: string;
   lastName: string;
   email: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export class User {
-  public readonly id: number;
+  public readonly id: Id;
 
   public readonly firstName: string;
 

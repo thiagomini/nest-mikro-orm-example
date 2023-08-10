@@ -36,7 +36,7 @@ describe('MikroOrmInternalModule', () => {
     // Arrange
     const entityManager = testingModule.get(EntityManager);
     const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(User),
+      getRepositoryToken(userSchema),
     );
 
     const user = new User({
@@ -53,9 +53,10 @@ describe('MikroOrmInternalModule', () => {
     // Assert
     const newUserInDb = await repository.findOne(user.id);
     expect(newUserInDb).toMatchObject({
-      id: expect.any(Number),
+      id: expect.any(String),
       firstName: 'John',
       lastName: 'Doe',
+      createdAt: expect.any(Date),
     });
   });
 });
