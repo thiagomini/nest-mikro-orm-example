@@ -2,9 +2,8 @@ import { EntityManager, EntityRepository, MikroORM } from '@mikro-orm/core';
 import { MikroOrmModule, getRepositoryToken } from '@mikro-orm/nestjs';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
-import { userSchema } from './user.schema';
 import { User } from './user.entity';
-import { customBaseEntitySchema } from './custom-base.entity.schema';
+import { userSchema } from './user.schema';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -12,8 +11,8 @@ describe('MikroOrmInternalModule', () => {
   beforeEach(async () => {
     testingModule = await Test.createTestingModule({
       imports: [
-        MikroOrmInternalModule.forTests(),
-        MikroOrmModule.forFeature([customBaseEntitySchema, userSchema]),
+        MikroOrmInternalModule,
+        MikroOrmModule.forFeature([userSchema]),
       ],
     }).compile();
 
