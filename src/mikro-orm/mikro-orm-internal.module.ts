@@ -1,20 +1,17 @@
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { DynamicModule, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { userSchema } from './user.schema';
 
-@Module({})
-export class MikroOrmInternalModule {
-  public static forTests(): DynamicModule {
-    return {
-      module: MikroOrmInternalModule,
-      imports: [
-        MikroOrmModule.forRoot({
-          type: 'postgresql',
-          clientUrl: 'postgresql://postgres:postgres@localhost:5435/postgres',
-          autoLoadEntities: true,
-          allowGlobalContext: true,
-          implicitTransactions: false,
-        }),
-      ],
-    };
-  }
-}
+@Module({
+  imports: [
+    MikroOrmModule.forRoot({
+      type: 'postgresql',
+      clientUrl: 'postgresql://postgres:postgres@localhost:5435/postgres',
+      autoLoadEntities: true,
+      allowGlobalContext: true,
+      implicitTransactions: false,
+    }),
+    MikroOrmModule.forFeature([userSchema]),
+  ],
+})
+export class MikroOrmInternalModule {}
