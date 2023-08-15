@@ -1,5 +1,3 @@
-import { Id } from './id';
-
 export type CreateUserProps = {
   firstName: string;
   lastName: string;
@@ -9,7 +7,7 @@ export type CreateUserProps = {
 };
 
 export class User {
-  public readonly id: Id;
+  public readonly id: number;
 
   public readonly firstName: string;
 
