@@ -20,6 +20,7 @@ describe('MikroOrmInternalModule', () => {
   afterEach(async () => {
     const orm = testingModule.get(MikroORM);
     await orm.em.rollback();
+    orm.em.clear();
     await testingModule.close();
   });
 
@@ -46,6 +47,7 @@ describe('MikroOrmInternalModule', () => {
 
     // Act
     await entityManager.persistAndFlush(user);
+    console.log(user);
 
     // Assert
     const newUserInDb = await repository.findOne(user.id);
@@ -71,6 +73,7 @@ describe('MikroOrmInternalModule', () => {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
+    console.log(user);
 
     // Act
     await entityManager.persistAndFlush(user);
