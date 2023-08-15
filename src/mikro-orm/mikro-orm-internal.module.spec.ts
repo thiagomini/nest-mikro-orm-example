@@ -3,7 +3,6 @@ import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
-import { userSchema } from './user.schema';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -28,7 +27,7 @@ describe('MikroOrmInternalModule', () => {
     // Arrange
     const entityManager = testingModule.get(EntityManager);
     const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
+      getRepositoryToken(User),
     );
 
     const user = new User({
@@ -57,7 +56,7 @@ describe('MikroOrmInternalModule', () => {
     // Arrange
     const entityManager = testingModule.get(EntityManager);
     const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
+      getRepositoryToken(User),
     );
 
     const user = new User({
@@ -85,7 +84,7 @@ describe('MikroOrmInternalModule', () => {
     // Arrange
     const entityManager = testingModule.get(EntityManager);
     const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
+      getRepositoryToken(User),
     );
 
     const user = new User({
