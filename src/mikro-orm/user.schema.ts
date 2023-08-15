@@ -8,6 +8,7 @@ export const userSchema = new EntitySchema<User>({
     id: {
       type: 'bigint',
       primary: true,
+      autoincrement: true,
     },
     firstName: {
       type: 'string',
