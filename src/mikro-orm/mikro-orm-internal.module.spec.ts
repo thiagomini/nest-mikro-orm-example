@@ -56,4 +56,32 @@ describe('MikroOrmInternalModule', () => {
       createdAt: expect.any(Date),
     });
   });
+
+  test('creates a new user', async () => {
+    // Arrange
+    const entityManager = testingModule.get(EntityManager);
+    const repository = testingModule.get<EntityRepository<User>>(
+      getRepositoryToken(userSchema),
+    );
+
+    const user = new User({
+      email: 'user@mail.com',
+      firstName: 'John',
+      lastName: 'Doe',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+
+    // Act
+    await entityManager.persistAndFlush(user);
+
+    // Assert
+    const newUserInDb = await repository.findOne(user.id);
+    expect(newUserInDb).toMatchObject({
+      id: expect.any(String),
+      firstName: 'John',
+      lastName: 'Doe',
+      createdAt: expect.any(Date),
+    });
+  });
 });

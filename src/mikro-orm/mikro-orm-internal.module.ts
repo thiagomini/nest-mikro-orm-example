@@ -10,6 +10,10 @@ import { userSchema } from './user.schema';
       autoLoadEntities: true,
       allowGlobalContext: true,
       implicitTransactions: false,
+      discovery: {
+        warnWhenNoEntities: false,
+        checkDuplicateEntities: false,
+      },
     }),
     MikroOrmModule.forFeature([userSchema]),
   ],

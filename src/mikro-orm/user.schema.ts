@@ -1,4 +1,4 @@
-import { BigIntType, EntitySchema } from '@mikro-orm/core';
+import { EntitySchema } from '@mikro-orm/core';
 import { User } from './user.entity';
 
 export const userSchema = new EntitySchema<User>({
@@ -20,10 +20,11 @@ export const userSchema = new EntitySchema<User>({
     },
     createdAt: {
       type: 'timestamp',
-      default: () => new Date(),
+      onCreate: () => new Date(),
     },
     updatedAt: {
       type: 'timestamp',
+      onCreate: () => new Date(),
       onUpdate: () => new Date(),
     },
   },
