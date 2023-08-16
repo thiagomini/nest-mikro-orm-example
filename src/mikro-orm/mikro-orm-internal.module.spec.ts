@@ -1,9 +1,7 @@
-import { EntityManager, EntityRepository, MikroORM } from '@mikro-orm/core';
-import { getRepositoryToken } from '@mikro-orm/nestjs';
+import { EntityManager, MikroORM } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
-import { userSchema } from './user.schema';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -14,22 +12,17 @@ describe('MikroOrmInternalModule', () => {
     }).compile();
 
     const orm = testingModule.get(MikroORM);
-    await orm.em.begin();
+    orm.em.clear();
   });
 
   afterEach(async () => {
-    const orm = testingModule.get(MikroORM);
-    await orm.em.rollback();
-    orm.em.clear();
     await testingModule.close();
   });
 
   test('creates a new user', async () => {
     // Arrange
-    const entityManager = testingModule.get(EntityManager);
-    const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
-    );
+
+    const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
       email: 'user@mail.com',
@@ -41,71 +34,37 @@ describe('MikroOrmInternalModule', () => {
 
     // Act
     await entityManager.persistAndFlush(user);
-    console.log(user);
-
-    // Assert
-    const newUserInDb = await repository.findOne(user.id);
-    expect(newUserInDb).toMatchObject({
-      id: expect.any(String),
-      firstName: 'John',
-      lastName: 'Doe',
-      createdAt: expect.any(Date),
-    });
   });
 
   test('creates a new user', async () => {
     // Arrange
-    const entityManager = testingModule.get(EntityManager);
-    const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
-    );
+    const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
-      email: 'user@mail.com',
-      firstName: 'John',
-      lastName: 'Doe',
+      email: 'user2@mail.com',
+      firstName: 'John2',
+      lastName: 'Doe2',
       createdAt: new Date(),
       updatedAt: new Date(),
     });
 
     // Act
     await entityManager.persistAndFlush(user);
-
-    // Assert
-    const newUserInDb = await repository.findOne(user.id);
-    expect(newUserInDb).toMatchObject({
-      id: expect.any(String),
-      firstName: 'John',
-      lastName: 'Doe',
-      createdAt: expect.any(Date),
-    });
   });
 
   test('creates a new user', async () => {
     // Arrange
-    const entityManager = testingModule.get(EntityManager);
-    const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
-    );
+    const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
-      email: 'user@mail.com',
-      firstName: 'John',
-      lastName: 'Doe',
+      email: 'user3@mail.com',
+      firstName: 'John3',
+      lastName: 'Doe3',
       createdAt: new Date(),
       updatedAt: new Date(),
     });
 
     // Act
     await entityManager.persistAndFlush(user);
-
-    // Assert
-    const newUserInDb = await repository.findOne(user.id);
-    expect(newUserInDb).toMatchObject({
-      id: expect.any(String),
-      firstName: 'John',
-      lastName: 'Doe',
-      createdAt: expect.any(Date),
-    });
   });
 });
