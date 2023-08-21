@@ -1,6 +1,7 @@
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Module } from '@nestjs/common';
 import { userSchema } from './user.schema';
+import { addressSchema } from './address.schema';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { userSchema } from './user.schema';
         warnWhenNoEntities: false,
       },
     }),
-    MikroOrmModule.forFeature([userSchema]),
+    MikroOrmModule.forFeature([userSchema, addressSchema]),
   ],
 })
 export class MikroOrmInternalModule {}

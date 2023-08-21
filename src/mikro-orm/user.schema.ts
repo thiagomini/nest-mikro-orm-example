@@ -1,5 +1,6 @@
 import { BigIntType, EntitySchema } from '@mikro-orm/core';
 import { User } from './user.entity';
+import { Address } from './address.entity';
 
 export const userSchema = new EntitySchema<User>({
   class: User,
@@ -12,17 +13,21 @@ export const userSchema = new EntitySchema<User>({
       autoincrement: true,
     },
     firstName: {
-      type: 'string',
+      type: String,
     },
     lastName: {
-      type: 'string',
+      type: String,
     },
     email: {
-      type: 'string',
+      type: String,
     },
     createdAt: {
       type: 'timestamp',
       onCreate: () => new Date(),
+    },
+    addresses: {
+      reference: '1:m',
+      entity: () => Address,
     },
     updatedAt: {
       type: 'timestamp',
