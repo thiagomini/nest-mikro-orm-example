@@ -28,6 +28,7 @@ export const userSchema = new EntitySchema<User>({
     addresses: {
       reference: '1:m',
       entity: () => Address,
+      mappedBy: 'user',
     },
     updatedAt: {
       type: 'timestamp',
