@@ -7,3 +7,10 @@ CREATE TABLE "user" (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
+
+-- Address with foreign key to user
+CREATE TABLE "address" (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES "user"(id),
+    street VARCHAR(255) NOT NULL
+);
