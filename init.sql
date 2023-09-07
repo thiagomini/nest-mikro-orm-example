@@ -14,3 +14,9 @@ CREATE TABLE "address" (
     user_id BIGINT NOT NULL REFERENCES "user"(id),
     street VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE "profile" (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES "user"(id),
+    image_url VARCHAR(255) NOT NULL
+);

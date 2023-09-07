@@ -1,4 +1,4 @@
-import { EntityManager, MikroORM, ref } from '@mikro-orm/core';
+import { EntityManager, MikroORM, Reference, ref } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
@@ -25,7 +25,6 @@ describe('MikroOrmInternalModule', () => {
 
   test('creates a new user', async () => {
     // Arrange
-
     const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
@@ -38,12 +37,14 @@ describe('MikroOrmInternalModule', () => {
 
     // Act
     await entityManager.persistAndFlush(user);
+
+    // Assert
+    expect(user.id).toBeDefined();
   });
 
   test('creates a new address', async () => {
     // Arrange
-
-    const entityManager = testingModule.get(EntityManager);
+    const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
       email: 'user@mail.com',
