@@ -17,8 +17,11 @@ describe('MikroOrmInternalModule', () => {
   });
 
   afterEach(async () => {
+    const orm = testingModule.get(MikroORM);
+    await orm.getSchemaGenerator().clearDatabase();
     await testingModule.close();
   });
+
 
   test('creates a new user', async () => {
     // Arrange
