@@ -6,7 +6,7 @@ CREATE TABLE "user" (
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 -- Address with foreign key to user
 CREATE TABLE "address" (

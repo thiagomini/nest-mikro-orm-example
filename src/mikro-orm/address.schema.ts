@@ -12,9 +12,6 @@ export const addressSchema = new EntitySchema<Address>({
       primary: true,
       autoincrement: true,
     },
-    userId: {
-      type: BigIntType,
-    },
     user: {
       entity: () => User,
       reference: 'm:1',

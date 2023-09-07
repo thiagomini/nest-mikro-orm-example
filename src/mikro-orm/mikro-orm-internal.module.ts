@@ -14,6 +14,7 @@ import { addressSchema } from './address.schema';
       discovery: {
         warnWhenNoEntities: false,
       },
+      debug: true
     }),
     MikroOrmModule.forFeature([userSchema, addressSchema]),
   ],
