@@ -1,4 +1,4 @@
-import { EntityManager, MikroORM } from '@mikro-orm/core';
+import { EntityManager, MikroORM, ref } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
@@ -43,7 +43,7 @@ describe('MikroOrmInternalModule', () => {
   test('creates a new address', async () => {
     // Arrange
 
-    const entityManager = testingModule.get(EntityManager).fork();
+    const entityManager = testingModule.get(EntityManager);
 
     const user = new User({
       email: 'user@mail.com',
@@ -57,7 +57,7 @@ describe('MikroOrmInternalModule', () => {
     // Act
     const newAddress = new Address({
       street: '123 Main St',
-      user: user,
+      user: ref(user),
     })
 
     await entityManager.persistAndFlush(newAddress);

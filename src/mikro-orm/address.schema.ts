@@ -16,6 +16,7 @@ export const addressSchema = new EntitySchema<Address>({
       entity: () => User,
       reference: 'm:1',
       inversedBy: 'addresses',
+      ref: true
     },
     street: {
       type: String,

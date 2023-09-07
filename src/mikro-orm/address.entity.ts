@@ -1,3 +1,4 @@
+import { Reference } from '@mikro-orm/core';
 import type { User } from './user.entity';
 
 export class Address {
@@ -5,9 +6,9 @@ export class Address {
 
   public readonly street: string;
 
-  public readonly user: User;
+  public readonly user: Reference<User>;
 
-  constructor(props: { street: string; user: User }) {
+  constructor(props: { street: string; user: Reference<User> }) {
     Object.assign(this, props);
   }
 }
