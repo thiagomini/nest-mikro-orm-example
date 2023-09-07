@@ -4,10 +4,12 @@ import { User } from './user.entity';
 export const userSchema = new EntitySchema<User>({
   class: User,
   tableName: 'user',
+  forceConstructor: true,
   properties: {
     id: {
-      type: 'bigint',
+      type: BigIntType,
       primary: true,
+      autoincrement: true,
     },
     firstName: {
       type: 'string',
@@ -20,10 +22,11 @@ export const userSchema = new EntitySchema<User>({
     },
     createdAt: {
       type: 'timestamp',
-      default: () => new Date(),
+      onCreate: () => new Date(),
     },
     updatedAt: {
       type: 'timestamp',
+      onCreate: () => new Date(),
       onUpdate: () => new Date(),
     },
   },

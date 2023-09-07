@@ -9,7 +9,10 @@ import { userSchema } from './user.schema';
       clientUrl: 'postgresql://postgres:postgres@localhost:5435/postgres',
       autoLoadEntities: true,
       allowGlobalContext: true,
-      implicitTransactions: false,
+      implicitTransactions: true,
+      discovery: {
+        warnWhenNoEntities: false,
+      },
     }),
     MikroOrmModule.forFeature([userSchema]),
   ],

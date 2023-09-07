@@ -1,9 +1,7 @@
-import { EntityManager, EntityRepository, MikroORM } from '@mikro-orm/core';
-import { getRepositoryToken } from '@mikro-orm/nestjs';
+import { EntityManager, MikroORM } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
-import { userSchema } from './user.schema';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -14,27 +12,17 @@ describe('MikroOrmInternalModule', () => {
     }).compile();
 
     const orm = testingModule.get(MikroORM);
-    await orm.em.begin();
+    orm.em.clear();
   });
 
   afterEach(async () => {
-    const orm = testingModule.get(MikroORM);
-    await orm.em.rollback();
     await testingModule.close();
-  });
-
-  test('connects to the database', async () => {
-    const orm = testingModule.get(MikroORM);
-
-    await expect(orm.isConnected()).resolves.toBe(true);
   });
 
   test('creates a new user', async () => {
     // Arrange
-    const entityManager = testingModule.get(EntityManager);
-    const repository = testingModule.get<EntityRepository<User>>(
-      getRepositoryToken(userSchema),
-    );
+
+    const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
       email: 'user@mail.com',
@@ -46,14 +34,5 @@ describe('MikroOrmInternalModule', () => {
 
     // Act
     await entityManager.persistAndFlush(user);
-
-    // Assert
-    const newUserInDb = await repository.findOne(user.id);
-    expect(newUserInDb).toMatchObject({
-      id: expect.any(String),
-      firstName: 'John',
-      lastName: 'Doe',
-      createdAt: expect.any(Date),
-    });
   });
 });

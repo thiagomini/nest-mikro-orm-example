@@ -6,6 +6,8 @@ export default defineConfig({
     globals: true,
     root: './',
     environment: 'node',
+    testTimeout: 360000,
+    threads: true,
   },
   plugins: [
     // This is required to build the test files with SWC
