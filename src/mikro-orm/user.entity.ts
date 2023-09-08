@@ -1,5 +1,5 @@
-import { Reference } from "@mikro-orm/core";
-import { Profile } from "./profile.entity";
+import { Reference } from '@mikro-orm/core';
+import { Profile } from './profile.entity';
 
 export type CreateUserProps = {
   firstName: string;

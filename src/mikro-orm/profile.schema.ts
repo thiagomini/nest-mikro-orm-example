@@ -16,9 +16,9 @@ export const profileSchema = new EntitySchema<Profile>({
       entity: () => User,
       reference: '1:1',
       mappedBy: 'profile',
-      ref: true
+      ref: true,
     },
-    street: {
+    imageUrl: {
       type: String,
     },
   },

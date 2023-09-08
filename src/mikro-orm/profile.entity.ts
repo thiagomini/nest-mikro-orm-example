@@ -1,5 +1,5 @@
-import { Reference } from "@mikro-orm/core";
-import { User } from "./user.entity";
+import { Reference } from '@mikro-orm/core';
+import { User } from './user.entity';
 
 export type CreateProfileProps = {
   id?: number;

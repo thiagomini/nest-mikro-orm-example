@@ -15,7 +15,7 @@ import { profileSchema } from './profile.schema';
       discovery: {
         warnWhenNoEntities: false,
       },
-      debug: true
+      debug: true,
     }),
     MikroOrmModule.forFeature([userSchema, addressSchema, profileSchema]),
   ],

@@ -1,8 +1,9 @@
-import { EntityManager, MikroORM, Reference } from '@mikro-orm/core';
+import { EntityManager, MikroORM, Reference, ref } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Address } from './address.entity';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
+import { Profile } from './profile.entity';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -46,7 +47,7 @@ describe('MikroOrmInternalModule', () => {
     const entityManager = testingModule.get(EntityManager).fork();
 
     const user = new User({
-      email: 'user@mail.com',
+      email: 'user2@mail.com',
       firstName: 'John',
       lastName: 'Doe',
       createdAt: new Date(),
@@ -57,6 +58,7 @@ describe('MikroOrmInternalModule', () => {
     // Act
     const newAddress = new Address({
       street: '123 Main St',
+      // It fails when using `ref(user)`
       user: new Reference(user),
     });
 
@@ -64,5 +66,30 @@ describe('MikroOrmInternalModule', () => {
 
     // Assert
     expect(newAddress.id).toBeDefined();
+  });
+
+  test('creates a new profile', async () => {
+    // Arrange
+    const entityManager = testingModule.get(EntityManager).fork();
+
+    const user = new User({
+      email: 'user3@mail.com',
+      firstName: 'John3',
+      lastName: 'Doe3',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    await entityManager.persistAndFlush(user);
+
+    // Act
+    const newProfile = new Profile({
+      user: ref(user),
+      imageUrl: 'https://example.com/image.png',
+    });
+
+    await entityManager.persistAndFlush(newProfile);
+
+    // Assert
+    expect(newProfile.id).toBeDefined();
   });
 });
