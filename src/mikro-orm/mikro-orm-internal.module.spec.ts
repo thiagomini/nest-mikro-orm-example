@@ -1,8 +1,8 @@
-import { EntityManager, MikroORM, Reference, ref } from '@mikro-orm/core';
+import { EntityManager, MikroORM, Reference } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
+import { Address } from './address.entity';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
-import { Address } from './address.entity';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -21,7 +21,6 @@ describe('MikroOrmInternalModule', () => {
     await orm.getSchemaGenerator().clearDatabase();
     await testingModule.close();
   });
-
 
   test('creates a new user', async () => {
     // Arrange
@@ -58,8 +57,8 @@ describe('MikroOrmInternalModule', () => {
     // Act
     const newAddress = new Address({
       street: '123 Main St',
-      user: ref(user),
-    })
+      user: new Reference(user),
+    });
 
     await entityManager.persistAndFlush(newAddress);
 
