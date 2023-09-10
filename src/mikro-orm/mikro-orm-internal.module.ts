@@ -2,6 +2,9 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Module } from '@nestjs/common';
 import { userSchema } from './user.schema';
 import { addressSchema } from './address.schema';
+import { companySchema } from './company.schema';
+import { employeeSchema } from './employee.schema';
+import { employeeDetailSchema } from './employee-detail.schema';
 
 @Module({
   imports: [
@@ -13,10 +16,11 @@ import { addressSchema } from './address.schema';
       implicitTransactions: true,
       discovery: {
         warnWhenNoEntities: false,
+        checkDuplicateEntities: false,
       },
       debug: true
     }),
-    MikroOrmModule.forFeature([userSchema, addressSchema]),
+    MikroOrmModule.forFeature([userSchema, addressSchema, companySchema, employeeSchema, employeeDetailSchema]),
   ],
 })
 export class MikroOrmInternalModule {}

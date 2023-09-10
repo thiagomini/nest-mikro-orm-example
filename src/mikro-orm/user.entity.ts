@@ -8,17 +8,11 @@ export type CreateUserProps = {
 
 export class User {
   public readonly id: number;
-
   public readonly firstName: string;
-
   public readonly lastName: string;
-
   public readonly email: string;
-
   public readonly createdAt: Date;
-
   public readonly updatedAt: Date;
-
   public readonly events: readonly unknown[];
 
   constructor(props: CreateUserProps) {
