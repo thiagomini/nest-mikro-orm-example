@@ -22,7 +22,7 @@ describe('MikroOrmInternalModule', () => {
 
   afterEach(async () => {
     const orm = testingModule.get(MikroORM);
-    await orm.getSchemaGenerator().refreshDatabase();
+    await orm.getSchemaGenerator().clearDatabase();
     await testingModule.close();
   });
 
