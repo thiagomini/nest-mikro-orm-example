@@ -1,5 +1,5 @@
 import { Collection, Reference } from "@mikro-orm/core";
-import { Profile } from "./profile.entity";
+import type { Profile } from "./profile.entity";
 import { Company } from "./company.entity";
 
 export type CreateUserProps = {
@@ -8,6 +8,7 @@ export type CreateUserProps = {
   email: string;
   createdAt: Date;
   updatedAt: Date;
+  company?: Company;
 };
 
 export class User {
@@ -32,5 +33,6 @@ export class User {
   constructor(props: CreateUserProps) {
     Object.assign(this, props);
     this.events = [{ created: true }];
+    this.company = props.company && Reference.createFromPK(Company, props.company?.id)
   }
 }

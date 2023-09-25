@@ -40,7 +40,7 @@ export const userSchema = new EntitySchema<User>({
     company: {
       entity: () => Company,
       reference: 'm:1',
-      inversedBy: 'user',
+      inversedBy: 'users',
       ref: true,
       nullable: true
     },

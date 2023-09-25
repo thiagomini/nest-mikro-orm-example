@@ -792,23 +792,23 @@
   resolved "https://registry.yarnpkg.com/@lukeed/csprng/-/csprng-1.1.0.tgz#1e3e4bd05c1cc7a0b2ddbd8a03f39f6e4b5e6cfe"
   integrity sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==
 
-"@mikro-orm/core@next":
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/core/-/core-5.7.15-dev.24.tgz#b499bca488b3065f31b92216cbbc21b6ba66dd84"
-  integrity sha512-MjdYetZDmHG+76qodaMR7ywb/m7iS1JmNqvuP6hQHU7gMGZ5ud6dmY+kDFPerxs0wDoASxa+TpzLLyCJDR9OLg==
+"@mikro-orm/core@5.8.3":
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/core/-/core-5.8.3.tgz#71ea18e12ced5194040a12203494795c2f580c58"
+  integrity sha512-KZIvcOSHa6K/1ej4GhXYg6QbtUDexmsswK4v5ZiIQcQka6f4v+K0FZR3fYJZXW5YoUzQjTuLX6cYaZ08uEM3Jw==
   dependencies:
     acorn-loose "8.3.0"
     acorn-walk "8.2.0"
     dotenv "16.3.1"
     fs-extra "11.1.1"
     globby "11.1.0"
-    mikro-orm "~5.7.15-dev.24"
+    mikro-orm "~5.8.3"
     reflect-metadata "0.1.13"
 
-"@mikro-orm/knex@~5.7.15-dev.24":
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/knex/-/knex-5.7.15-dev.24.tgz#e6a55d64514795dc0c83c8a811d07bbbb2bc2477"
-  integrity sha512-JRcD5nAP/yJgCxwfz01SR325OpcYeWpNExyAd+daAYr9pHGsPGc1r9qcrVZRIzic20H1XmqQPBTlPF2ZXnUewA==
+"@mikro-orm/knex@~5.8.3":
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/knex/-/knex-5.8.3.tgz#e601ce5cc69950a2bd2be7e7eb8fbf96e7b875d3"
+  integrity sha512-+fQ/Cl8wLJjmHUHPPRtnf5rwAGKW+reVIZe5qER7W7UIc2ZiGS0tTldKM9r4bWBme/+mppaK8lv1qwb8WikkoQ==
   dependencies:
     fs-extra "11.1.1"
     knex "2.5.1"
@@ -819,13 +819,13 @@
   resolved "https://registry.yarnpkg.com/@mikro-orm/nestjs/-/nestjs-5.2.0.tgz#259f94b63a3b1e0582fbcbfe333b82189f0b2f2a"
   integrity sha512-DZNqTQCoycU4R6Wc3mMOH9Tb3sXGnpFlKil0/gdiezP2oS0B4UPBN3GKysA+SZJ9nmbI7p1OVxymlzj8CJbZbA==
 
-"@mikro-orm/postgresql@next":
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/postgresql/-/postgresql-5.7.15-dev.24.tgz#cecb91f262f0bcf105a06bc4a76685cf119f7360"
-  integrity sha512-V7PvE76h2P5ZDZAsC8usyOzctyTnk3b2YXPnoWobb6nr7/jQF171z8aJkjHSmQe64ctGVo12KTd6R/q8k/8XyA==
+"@mikro-orm/postgresql@5.8.3":
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/postgresql/-/postgresql-5.8.3.tgz#5d342c03f72405b579dee55dbb8b528bfac606cf"
+  integrity sha512-39Kpw/v3lqmNL9TnNNNF62Ysgkml4O8u3CuydJE+ChTudAV+3gpNJ1h1ZebVByW1sfsDEmdO+ag5tk0SalmHsA==
   dependencies:
-    "@mikro-orm/knex" "~5.7.15-dev.24"
-    pg "8.11.2"
+    "@mikro-orm/knex" "~5.8.3"
+    pg "8.11.3"
 
 "@nestjs/cli@^10.0.2":
   version "10.1.11"
@@ -3882,10 +3882,10 @@ micromatch@^4.0.0, micromatch@^4.0.4:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
-mikro-orm@~5.7.15-dev.24:
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/mikro-orm/-/mikro-orm-5.7.15-dev.24.tgz#c4ad3584e847b0b57368caf73b8432f8b98ada43"
-  integrity sha512-Z1yQzWicv5/SEvcz8uv9R63ax/41pZha9h0n+YjN71WatAAZ9ZvJhWQbbTSx/cEmOA4Fk3eDgyjhP+AwdhWhEg==
+mikro-orm@~5.8.3:
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/mikro-orm/-/mikro-orm-5.8.3.tgz#07967964b38327e123604485ae04eb249cd83166"
+  integrity sha512-Iitd23Q3ZcT127SUmBPk8j7FHwCjLNDVlY7FSeQ+xwkRD51fLBqXMNjgbXcQtn8EHtWuA52Wzx6R401No/lqng==
 
 mime-db@1.52.0:
   version "1.52.0"
@@ -4291,7 +4291,22 @@ pg-types@^2.1.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@8.11.2, pg@^8.11.2:
+pg@8.11.3:
+  version "8.11.3"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-8.11.3.tgz#d7db6e3fe268fcedd65b8e4599cda0b8b4bf76cb"
+  integrity sha512-+9iuvG8QfaaUrrph+kpF24cXkH1YOOUeArRNYIxq1viYHZagBxrTno7cecY1Fa44tJeZvaoG+Djpkc3JwehN5g==
+  dependencies:
+    buffer-writer "2.0.0"
+    packet-reader "1.0.0"
+    pg-connection-string "^2.6.2"
+    pg-pool "^3.6.1"
+    pg-protocol "^1.6.0"
+    pg-types "^2.1.0"
+    pgpass "1.x"
+  optionalDependencies:
+    pg-cloudflare "^1.1.1"
+
+pg@^8.11.2:
   version "8.11.2"
   resolved "https://registry.yarnpkg.com/pg/-/pg-8.11.2.tgz#1a23f6de7bfb65ba56e4dd15df96668d319900c4"
   integrity sha512-l4rmVeV8qTIrrPrIR3kZQqBgSN93331s9i6wiUiLOSk0Q7PmUxZD/m1rQI622l3NfqBby9Ar5PABfS/SulfieQ==

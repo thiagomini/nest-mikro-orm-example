@@ -15,7 +15,7 @@ export const companySchema = new EntitySchema<Company>({
     name: {
       type: String,
     },
-    user: {
+    users: {
       entity: () => User,
       reference: '1:m',
       mappedBy: 'company',

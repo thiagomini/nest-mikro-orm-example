@@ -4,7 +4,7 @@ import { User } from './user.entity';
 
 export const profileSchema = new EntitySchema<Profile>({
   class: Profile,
-  tableName: 'role',
+  tableName: 'profile',
   forceConstructor: true,
   properties: {
     id: {
