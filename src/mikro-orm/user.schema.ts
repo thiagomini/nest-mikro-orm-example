@@ -2,6 +2,7 @@ import { BigIntType, EntitySchema } from '@mikro-orm/core';
 import { User } from './user.entity';
 import { Address } from './address.entity';
 import { Company } from './company.entity';
+import { Profile } from './profile.entity';
 
 export const userSchema = new EntitySchema<User>({
   class: User,
@@ -42,6 +43,12 @@ export const userSchema = new EntitySchema<User>({
       inversedBy: 'user',
       ref: true,
       nullable: true
-    }
+    },
+    profiles: {
+      entity: () => Profile,
+      reference: '1:m',
+      mappedBy: 'user',
+      nullable: true
+    },
   },
 });

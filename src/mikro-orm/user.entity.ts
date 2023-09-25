@@ -1,3 +1,7 @@
+import { Collection, Reference } from "@mikro-orm/core";
+import { Profile } from "./profile.entity";
+import { Company } from "./company.entity";
+
 export type CreateUserProps = {
   firstName: string;
   lastName: string;
@@ -20,6 +24,10 @@ export class User {
   public readonly updatedAt: Date;
 
   public readonly events: readonly unknown[];
+
+  public readonly profiles: Collection<Profile> = new Collection<Profile>(this);
+
+  public readonly company?: Reference<Company>;
 
   constructor(props: CreateUserProps) {
     Object.assign(this, props);
