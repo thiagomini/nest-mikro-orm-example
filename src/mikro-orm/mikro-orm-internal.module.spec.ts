@@ -2,7 +2,6 @@ import { EntityManager, MikroORM, Reference, ref } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
-import { Address } from './address.entity';
 import { Company } from './company.entity';
 import { Profile } from './profile.entity';
 
