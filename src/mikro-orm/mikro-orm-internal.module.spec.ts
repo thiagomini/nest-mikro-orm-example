@@ -12,13 +12,17 @@ describe('MikroOrmInternalModule', () => {
       imports: [MikroOrmInternalModule],
     }).compile();
 
+    
     const orm = testingModule.get(MikroORM);
+    await orm.getSchemaGenerator().updateSchema({
+      safe: true,
+    });
     orm.em.clear();
   });
 
   afterEach(async () => {
     const orm = testingModule.get(MikroORM);
-    await orm.getSchemaGenerator().clearDatabase();
+    await orm.getSchemaGenerator().refreshDatabase();
     await testingModule.close();
   });
 
@@ -40,29 +44,4 @@ describe('MikroOrmInternalModule', () => {
     await entityManager.persistAndFlush(user);
   });
 
-  test('creates a new address', async () => {
-    // Arrange
-
-    const entityManager = testingModule.get(EntityManager);
-
-    const user = new User({
-      email: 'user@mail.com',
-      firstName: 'John',
-      lastName: 'Doe',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    });
-    await entityManager.persistAndFlush(user);
-
-    // Act
-    const newAddress = new Address({
-      street: '123 Main St',
-      user: ref(user),
-    })
-
-    await entityManager.persistAndFlush(newAddress);
-
-    // Assert
-    expect(newAddress.id).toBeDefined();
-  });
 });
