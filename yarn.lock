@@ -792,40 +792,40 @@
   resolved "https://registry.yarnpkg.com/@lukeed/csprng/-/csprng-1.1.0.tgz#1e3e4bd05c1cc7a0b2ddbd8a03f39f6e4b5e6cfe"
   integrity sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==
 
-"@mikro-orm/core@next":
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/core/-/core-5.7.15-dev.24.tgz#b499bca488b3065f31b92216cbbc21b6ba66dd84"
-  integrity sha512-MjdYetZDmHG+76qodaMR7ywb/m7iS1JmNqvuP6hQHU7gMGZ5ud6dmY+kDFPerxs0wDoASxa+TpzLLyCJDR9OLg==
+"@mikro-orm/core@5.9.1":
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/core/-/core-5.9.1.tgz#c497d0591cc6960223115df9af2c35a1e1081a05"
+  integrity sha512-/74VuhbQTkvQJ5d+PZxop/xw/gc5BU64wljKDspTNqM+nEHPJV8MZvVE01jJM2sXs6lRRZDMYuh4CDypqT0MMg==
   dependencies:
     acorn-loose "8.3.0"
     acorn-walk "8.2.0"
     dotenv "16.3.1"
     fs-extra "11.1.1"
     globby "11.1.0"
-    mikro-orm "~5.7.15-dev.24"
+    mikro-orm "5.9.1"
     reflect-metadata "0.1.13"
 
-"@mikro-orm/knex@~5.7.15-dev.24":
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/knex/-/knex-5.7.15-dev.24.tgz#e6a55d64514795dc0c83c8a811d07bbbb2bc2477"
-  integrity sha512-JRcD5nAP/yJgCxwfz01SR325OpcYeWpNExyAd+daAYr9pHGsPGc1r9qcrVZRIzic20H1XmqQPBTlPF2ZXnUewA==
+"@mikro-orm/knex@5.9.1":
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/knex/-/knex-5.9.1.tgz#97e9f034a47fd91d0448a6a9d4cdbcb967deded8"
+  integrity sha512-Uuq2SkEOKgcXST14BvCMTp19YhpS9ZKxJpvAuPDQg/3sGjt3Y5nYwcKGOukChIwOREH1fveogKLbE1xLc7479g==
   dependencies:
     fs-extra "11.1.1"
     knex "2.5.1"
     sqlstring "2.3.3"
 
-"@mikro-orm/nestjs@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/nestjs/-/nestjs-5.2.0.tgz#259f94b63a3b1e0582fbcbfe333b82189f0b2f2a"
-  integrity sha512-DZNqTQCoycU4R6Wc3mMOH9Tb3sXGnpFlKil0/gdiezP2oS0B4UPBN3GKysA+SZJ9nmbI7p1OVxymlzj8CJbZbA==
+"@mikro-orm/nestjs@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/nestjs/-/nestjs-5.2.1.tgz#65c170aa8eb3c7e75787b3f6ef25137be4d39294"
+  integrity sha512-TrCdPsM7DApxrK3avBbijT6/6Er4TZhtiQ+qlMqtqva13vMCG4HiF2vIWGrKJbFukkLRuhOfZlES+KZ9Y1Lx2A==
 
-"@mikro-orm/postgresql@next":
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/@mikro-orm/postgresql/-/postgresql-5.7.15-dev.24.tgz#cecb91f262f0bcf105a06bc4a76685cf119f7360"
-  integrity sha512-V7PvE76h2P5ZDZAsC8usyOzctyTnk3b2YXPnoWobb6nr7/jQF171z8aJkjHSmQe64ctGVo12KTd6R/q8k/8XyA==
+"@mikro-orm/postgresql@5.9.1":
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/postgresql/-/postgresql-5.9.1.tgz#bb65bd820823faf78f82ea5cf06aea496df10b29"
+  integrity sha512-ih7SUr3AYC8aq7jucFVYVAEge9U5q4gcDP7xapmKqRm5Pups9oC+qrXdpAyvzKqWazRfrydfLmLXKm+uqmTGHQ==
   dependencies:
-    "@mikro-orm/knex" "~5.7.15-dev.24"
-    pg "8.11.2"
+    "@mikro-orm/knex" "5.9.1"
+    pg "8.11.3"
 
 "@nestjs/cli@^10.0.2":
   version "10.1.11"
@@ -3882,10 +3882,10 @@ micromatch@^4.0.0, micromatch@^4.0.4:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
-mikro-orm@~5.7.15-dev.24:
-  version "5.7.15-dev.24"
-  resolved "https://registry.yarnpkg.com/mikro-orm/-/mikro-orm-5.7.15-dev.24.tgz#c4ad3584e847b0b57368caf73b8432f8b98ada43"
-  integrity sha512-Z1yQzWicv5/SEvcz8uv9R63ax/41pZha9h0n+YjN71WatAAZ9ZvJhWQbbTSx/cEmOA4Fk3eDgyjhP+AwdhWhEg==
+mikro-orm@5.9.1:
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/mikro-orm/-/mikro-orm-5.9.1.tgz#5a77b60acd3d5da784e2809e0dceba01972ce091"
+  integrity sha512-wXUtVElIbrJgvXAR7gD1xnVdCMP4F8rZ3OwxeAAY7gmLgIQTgQPQiwXH/kqcfZ5rBBOBmc0cTnuIwxceaOAwQA==
 
 mime-db@1.52.0:
   version "1.52.0"
@@ -4291,7 +4291,22 @@ pg-types@^2.1.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@8.11.2, pg@^8.11.2:
+pg@8.11.3:
+  version "8.11.3"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-8.11.3.tgz#d7db6e3fe268fcedd65b8e4599cda0b8b4bf76cb"
+  integrity sha512-+9iuvG8QfaaUrrph+kpF24cXkH1YOOUeArRNYIxq1viYHZagBxrTno7cecY1Fa44tJeZvaoG+Djpkc3JwehN5g==
+  dependencies:
+    buffer-writer "2.0.0"
+    packet-reader "1.0.0"
+    pg-connection-string "^2.6.2"
+    pg-pool "^3.6.1"
+    pg-protocol "^1.6.0"
+    pg-types "^2.1.0"
+    pgpass "1.x"
+  optionalDependencies:
+    pg-cloudflare "^1.1.1"
+
+pg@^8.11.2:
   version "8.11.2"
   resolved "https://registry.yarnpkg.com/pg/-/pg-8.11.2.tgz#1a23f6de7bfb65ba56e4dd15df96668d319900c4"
   integrity sha512-l4rmVeV8qTIrrPrIR3kZQqBgSN93331s9i6wiUiLOSk0Q7PmUxZD/m1rQI622l3NfqBby9Ar5PABfS/SulfieQ==

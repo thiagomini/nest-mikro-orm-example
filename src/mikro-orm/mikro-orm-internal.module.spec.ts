@@ -2,7 +2,6 @@ import { EntityManager, MikroORM, ref } from '@mikro-orm/core';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MikroOrmInternalModule } from './mikro-orm-internal.module';
 import { User } from './user.entity';
-import { Address } from './address.entity';
 
 describe('MikroOrmInternalModule', () => {
   let testingModule: TestingModule;
@@ -12,7 +11,6 @@ describe('MikroOrmInternalModule', () => {
       imports: [MikroOrmInternalModule],
     }).compile();
 
-    
     const orm = testingModule.get(MikroORM);
     await orm.getSchemaGenerator().updateSchema({
       safe: true,
@@ -25,7 +23,6 @@ describe('MikroOrmInternalModule', () => {
     await orm.getSchemaGenerator().refreshDatabase();
     await testingModule.close();
   });
-
 
   test('creates a new user', async () => {
     // Arrange
@@ -43,5 +40,4 @@ describe('MikroOrmInternalModule', () => {
     // Act
     await entityManager.persistAndFlush(user);
   });
-
 });

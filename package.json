@@ -17,9 +17,9 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@mikro-orm/core": "next",
-    "@mikro-orm/nestjs": "5.2.0",
-    "@mikro-orm/postgresql": "next",
+    "@mikro-orm/core": "5.9.1",
+    "@mikro-orm/nestjs": "5.2.1",
+    "@mikro-orm/postgresql": "5.9.1",
     "@nestjs/common": "^10.1.3",
     "@nestjs/core": "^10.1.3",
     "@nestjs/platform-express": "^10.1.3",
